@@ -1,9 +1,14 @@
 <script>
+  import { Log } from 'meteor/logging'
+  Log.debug({class:'client::main'});
+
   import { Meteor } from "meteor/meteor";
   import { LinksCollection } from '../api/links';
   
   let counter = 0;
   const addToCounter = () => {
+    Log.debug({class:'client::main', method:'addToCounter()'});
+
     counter += 1;
   }
   
