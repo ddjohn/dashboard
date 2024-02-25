@@ -3,6 +3,7 @@ Log.debug({class:'server::main'});
 
 import { Meteor } from 'meteor/meteor';
 import { LinksCollection } from '/imports/api/links';
+import { KpisCollection } from '/imports/api/kpis';
 
 async function insertLink({ title, url }) {
   Log.debug({class:'server::main', method:'insertLink()'});
@@ -14,6 +15,12 @@ Meteor.publish('links.all', function publishLinksAll() {
   Log.debug({class:'server::main', method:'publishLinksAll()'});
 
   return LinksCollection.find();
+})
+
+Meteor.publish('kpis.all', function publishKpisAll() {
+  Log.debug({class:'server::main', method:'publishKpisAll()'});
+
+  return KpisCollection.find();
 })
 
 Meteor.startup(async () => {
